@@ -17,4 +17,8 @@ EXPOSE 80
 # VOLUME /app
 WORKDIR /app
 
+ADD git-cron /etc/crontabs/git-cron
+
+RUN crond -b -L /dev/null 2>&1
+
 ENTRYPOINT ["/bin/sh", "/start.sh"]

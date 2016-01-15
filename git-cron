@@ -1,0 +1,4 @@
+# do daily/weekly/monthly maintenance
+# min   hour    day     month   weekday command
+*/5     *       *       *       *       cd /app && git pull > /dev/null 2>&1
+
