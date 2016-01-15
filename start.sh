@@ -4,7 +4,10 @@
 git clone -b ${GIT_BRANCH} ${GIT_URL} /app
 
 # setup symlink for assets
-mkdir -p /app/sites/default/
+if [ ! -d "/app/sites/default" ]
+then
+		mkdir -p /app/sites/default/
+fi
 
 if [ ! -d "/app/sites/default/files" ]
 then
@@ -15,3 +18,4 @@ chown -Rf apache:apache /assets
 
 # start apache server in foreground mode
 /usr/sbin/httpd -DFOREGROUND
+

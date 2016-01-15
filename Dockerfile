@@ -19,6 +19,7 @@ WORKDIR /app
 
 ADD git-cron /etc/crontabs/git-cron
 
-RUN crond -b -L /dev/null 2>&1
+RUN crond -b -L /dev/null 2>&1 && \
+    mkdir /run/apache2
 
 ENTRYPOINT ["/bin/sh", "/start.sh"]
