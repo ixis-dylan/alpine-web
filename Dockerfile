@@ -17,9 +17,8 @@ EXPOSE 80
 # VOLUME /app
 WORKDIR /app
 
-ADD git-cron /etc/crontabs/git-cron
+# make directory for pid file
+RUN mkdir /run/apache2
 
-RUN crond -b -L /dev/null 2>&1 && \
-    mkdir /run/apache2
-
+# start commands
 ENTRYPOINT ["/bin/sh", "/start.sh"]
