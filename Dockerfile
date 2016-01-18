@@ -7,6 +7,7 @@ chmod +x /usr/local/bin/drush && \
 mkdir /app && chown -R apache:apache /app && \
 sed -i 's#^DocumentRoot ".*#DocumentRoot "/app"#g' /etc/apache2/httpd.conf && \
 sed -i 's#AllowOverride none#AllowOverride All#' /etc/apache2/httpd.conf && \
+sed -i 's/Directory \"\/var\/www\/localhost\/htdocs\"/Directory \"\/app\"/g' /etc/apache2/httpd.conf && \
 echo "Success"
 
 ADD ./start.sh /start.sh
